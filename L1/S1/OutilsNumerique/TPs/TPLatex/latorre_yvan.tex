@@ -1,0 +1,194 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\pagestyle{headings}
+
+\title{\LaTeX ~: document à reproduire}
+\author{Kusçak PËBARÊK}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+    \begin{abstract}
+    Je donne dans ce document des exemples (al\'eatoires) de ce que j'ai vu en cours lors de mes ann\'ees perdues de Licence :
+
+    
+    \begin{enumerate}
+        \item des d\'efinitions en math\'ematiques,
+        \item des donn\'ees et des programmes en informatique,
+        \item des r\'eactions chimiques,
+        \item des formules physiques...
+        
+    \end{enumerate}
+\end{abstract}
+    \newpage
+
+    \tableofcontents
+
+    \newpage
+    \section{Math\'ematiques}
+    \subsection{Espaces métriques, définition de la distance}
+    
+    
+    On note
+    
+    $$ \mathbb{R}^{p}=\underbrace{\mathbb{R}\times\cdots\times\mathbb{R}}_{p ~\text{fois}}=\{\emph{X}=(x_1,\cdot,x_p)|~ x_i\in\mathbb{R},\forall{i}\in [1,\cdots ,p]\} $$
+    espace vectoriel r\'eel de dimension \emph{p}.
+     
+     On définit la notion de distance comme suit.
+     
+     \textbf{Definition 1.} Soit \emph{E} un ensemble non-vide. On dit qu'une application $d: E\times E \to\mathbb{R}_+,~ d:(x,y)\mapsto d(x,y)$ est une \underline{distance} sur \emph{E} si elle vérifie les trois axiomes suivants :
+     
+     \begin{itemize}
+        \item D1 (s\'eparation) $\forall{(x,y)} \in E \times E, ~\{ x = y\} \Leftrightarrow \{d(x,y) = 0 \}; $
+        \item D2 (sym\'etrie) $\forall{(x,y)} \in E \times E,~d(x,y) = d(y,x);$
+        \item D3 (in\'egalite triangulaire) $\forall{(x,y,z)} \in E \times E \times E,~d(x,y) \leq d(x,z) + d(z,y)$
+    \end{itemize}
+     
+    \subsection{Exemples de distances}
+
+    On a beaucoup d'exemples de distances diff\'erents sur $\mathbb{R}$. Notamment,
+    \begin{enumerate}
+        \item $d(x,y) = \displaystyle{\sqrt{|x - y |}} ~$ou$~ d(x,y) = \displaystyle{\frac{|x-y|}{1+|x-y|}.}$
+        \item $d_2(X,Y)=\left(\sum_{i=1}^p|x_i-y_i|^2\right)^{1/2}$ (m\'etrique euclidienne), ou $d1(X,Y)=\sum_{i=1}^p|x_i-y_i|,~$ou$~ d_\infty(X,Y)=~$sup$_{i=[1,\cdots,p]}|x_i-y_i|$
+        \item Soit $E$ un ensemble quelconque. Pour $x,y \in E$ on d\'efinit 
+        
+        
+        \begin{displaymath}
+            d(x,y)= \left\{ \begin{array}{ll}
+                0 & \textrm{~si $x=y$,}\\
+                1 & \textrm{~~~sinon.}       
+            \end{array} \right.
+        \end{displaymath}
+    \end{enumerate}
+        
+        \subsection{Algebre}
+        \subsubsection{Coordonn\'ees polaires}
+        
+        Notation : $\mathbb{R_+} =[0,+\infty[$. On a une application bijective de $\mathbb{R_+}\times [0,2\pi[$ vers $\mathbb{R}^2$ donn\'ee par les formules suivantes:
+        \begin{equation}
+            \left\{ \begin{array}{cc}
+            x & \textrm{= $r\cos t$}\\
+            y & \textrm{= $r\sin t$}       
+            \end{array} \right.
+            \end{equation}
+
+        \newpage
+
+        Son application r\'eciproque est l'application de $\mathbb{R}^2 \rightarrow \mathbb{R}_+ \times [0,2\pi[$ sui-vante:
+        \begin{equation}
+            \left\{ \begin{array}{ll}
+            r & ~~~~~\textrm{= $\displaystyle{\sqrt{x^2+y^2}}$}\\
+            t & \textrm{= $\arccos \displaystyle{\frac{x}{\sqrt{x^2+y^2}}}$}      
+            \end{array} \right.
+            \end{equation}
+            Donc en particulier, on a $r^2=x^2+y^2$.
+        
+            \subsubsection{D\'eterminant d'une matrice}
+
+            Soit $(a,b) \in \mathbb{R}^2$. Pour $n \in \mathbb{N},~ n \geq 2,$ on note $B_n(a,b)$ le d\'eterminant suivant:
+            $$
+            B_n(a,b)= \begin{vmatrix}
+                 a+b& a& & 0\\
+                 b &\ddots& \ddots &\\
+                 & \ddots& \ddots& a\\
+                 0 & & b & a+b
+            \end{vmatrix}
+            $$
+            \begin{enumerate}
+                \item Montrer que si $a \neq b$ 
+                $$\forall{n} \in \mathbb{N},n \geq 2,~ B_n(a,b)=\frac{a^{n+1}-b^{n+1}}{a-b}.$$
+                \item Montrer que $\forall{n} \in \mathbb{N},n \geq 2,~ B_n(a,b)=(a+b)B_{n-1}(a,b)-abB_{n-2}(a,b)$
+                
+            \end{enumerate}
+            \section{Informatique}
+            \subsection{M\'emoire}
+
+            Le tableau suivant donne les temps d'acc\`es et les capacit\'es typiques\footnote{si c'est-\`a-dire en ordre de grandeur : il existe des m\'emoires centrales de plus de 5 GO, et des disques de plus de 500 GO...} des unit\'es de m\'emoire courantes.
+            \begin{table}[hb]
+                
+                \centering
+                    \begin{tabular}{||c | c | cl ||}
+                        \hline
+                        \textbf{Type} & \textbf{Temps d'acces} & \textbf{Taille} &\\ \hline \hline
+                        Registre & 0,1 ns & 8 & octets\\ \hline
+                        Memoire centrale & 100 ns &  5 &GO\\ \hline
+                        Disque & 10 ms & 500 &GO\\ \hline
+                        Archivage & 1 mn & Illimitee & \\
+                        \hline
+                    \end{tabular}
+               
+                
+            \end{table}
+            
+
+            \newpage
+
+            \subsection{Un programme Java}
+
+            Qu'est ce qui est affich\'e sur le terminal lors de l'ex\'ecution de ce programme?
+\begin{verbatim}
+public class exo25 { 
+        public static void main(String[] args) {
+                int n = 5;
+                for (int i = 0; i < n; i++) {
+                        for (int j = 0; j < i; j++){
+                                System.out.print(". ");
+                        }
+                }
+        }
+}
+        \end{verbatim}
+                	
+            \section{Chimie}
+
+            Prenons deux exemples :
+            \begin{enumerate}
+                \item Zn + Cu$^{2+} \rightarrow$ Zn$^{2+}$ + Cu
+                \begin{itemize}
+                    \item Zn $\rightarrow$ Zn$^{2+}$ +$2 e^{-}$;$Zn~$(le reducteur) c\`ede des \'electrons, il est oxyd\'e
+                    \item Cu$^{2+}$ + $2e^- \rightarrow$ Cu;Cu$^{2+}$ (l'oxydant) capte les \'electrons c\'ed\'es par $Zn$,il est r\'eduit ;
+                \end{itemize}
+                \item Cu + 2Ag$^+ \rightarrow$ Cu$^{2+}$ + 2Ag\\
+                La transformation de l'\'el\'ement cuivre s'effectue ici dans le sens inverse.
+            \end{enumerate}
+            Ensuite, j'ins\`ere une image dans la Figure \ref{img} de l'\'el\'ement du tableau p\'e-riodique de Mendeleev qui commence par la m\^eme lettre que mon nom de famille.
+            
+            \section{Physique}
+            \flushleft
+            Multiplions scalairement la 2$^\text{e}$ loi de Newton par \textbf{v} :
+            
+            $$m\textbf{a.v} = \textbf{F.v}$$
+            $$\textbf{a.v} = \frac{dv_x}{dt}v_x + \frac{dv_y}{dt}v_y + \frac{dv_z}{dt}v_z = \frac{d}{dt}
+            \left(\frac{v_{x}^{2}}{2}\right) + \frac{d}{dt}
+            \left(\frac{v_{y}^{2}}{2}\right) + \frac{d}{dt}
+            \left(\frac{v_{z}^{2}}{2}\right) = \frac{d}{dt} \left(\frac{v^2}{2}\right)\text{,}$$
+            donc
+            $$\frac{d}{dt} \left(\frac{1}{2}mv^2\right) = \text{\textbf{F.v}}$$            
+            \newpage
+
+            \begin{figure}
+                \centering
+                    \includegraphics[width=0.4\textwidth]{Lanthanum.jpg}
+                    \caption{Je choisis Lanthanum car je m'appelle Yvan LATORRE donc je dois choisir un \'el\'ement dont le nom commence par un La.}
+                    \label{img}
+                
+            \end{figure}
+            \flushleft
+            ou encore
+            $$d \left(\frac{1}{2}mv^2\right) = \text{\textbf{F.v}$dt$} = \text{\textbf{F}}.d \text{\textbf{OM}}$$
+            $$\boxed{$$\mathcal{P} = \text{\textbf{F}.\textbf{v}}$$}$$
+            est la \textbf{puissance} de la r\'esultante des forces \textbf{F} qui s'exercent sur M o\`u \textbf{v} est la vitesse de M.
+            $$\boxed{$$\delta W = \text{\textbf{F}}.d\text{\textbf{OM}} = \text{\textbf{F}.\textbf{v}}dt = \mathcal{P}(t)dt$$}$$
+            est le \textbf{travail \'el\'ementaire} de la r\'esultante des forces \textbf{F} qui s'exercent sur M ou $d\textbf{OM}$ est le d\'eplacement \'el\'ementaire de M.
+
+\end{document} %derniere ligne du document

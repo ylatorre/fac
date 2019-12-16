@@ -1,0 +1,12 @@
+\babel@toc {french}{}
+\contentsline {section}{\numberline {1}Math\'ematiques}{3}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Espaces m\IeC {\'e}triques, d\IeC {\'e}finition de la distance}{3}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Exemples de distances}{3}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Algebre}{3}{subsection.1.3}% 
+\contentsline {subsubsection}{\numberline {1.3.1}Coordonn\'ees polaires}{3}{subsubsection.1.3.1}% 
+\contentsline {subsubsection}{\numberline {1.3.2}D\'eterminant d'une matrice}{4}{subsubsection.1.3.2}% 
+\contentsline {section}{\numberline {2}Informatique}{4}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}M\'emoire}{4}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Un programme Java}{5}{subsection.2.2}% 
+\contentsline {section}{\numberline {3}Chimie}{5}{section.3}% 
+\contentsline {section}{\numberline {4}Physique}{5}{section.4}% 

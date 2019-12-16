@@ -1,0 +1,38 @@
+# ~/.bashrc: exécuté par bash(1) pour les shells.
+
+if [ "$PS1" ]; then
+
+    # pas de duplications de commandes consécutives identiques
+    # dans l'historique des commandes
+    export HISTCONTROL=ignoredups
+
+    # pour avoir les fichiers colores selon leur type
+    # lors d'un ls
+    if [ "$TERM" != "dumb" ]; then
+	eval `dircolors -b`
+	alias ls='ls --color=auto'
+    fi
+
+    # un joli prompt : user et machine, avec le pwd placé
+    # en titre de fenêtre
+    PS1="\[\033]0;\w\007\]\u/\h> "
+    
+    # mise a jour automatique des lignes et colonnes
+    # apres chaque commande
+    shopt -s checkwinsize
+
+
+fi
+
+# masque de creation de fichiers
+umask 027
+
+# pour ne pas ecraser un fichier existant en cas de redirection
+set -o noclobber
+
+# ajout a PATH d'un repertoire bien utile...
+export PATH="${PATH}":.
+ 
+# pour avoir des caracteres jolis avec emacs
+alias emacs='emacs -fn 10x20'
+
