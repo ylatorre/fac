@@ -1,0 +1,14 @@
+Q1) touch statique.py
+    emacs statique.py
+
+Q4) python statique.py
+
+Q5)cp statique.py avecinput.py
+
+Q7) python3 avecinput.py
+
+Q8) si modulo q est egale a 0 alors il est un multiple de p sinon il n'est pas un multiple 
+
+Q14) a fin de verifier que mon code fonction j'ai inserer plusieur print a different endroit puis test avec plusieur variable differente
+
+Q15)c'est un  ['oiseau', 'moustique', 'chat', 'chien', 'tyrannosaure', 'pterodactyle'] est on peut repondre par oui ou par non
