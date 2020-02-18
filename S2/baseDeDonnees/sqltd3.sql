@@ -64,3 +64,44 @@ select NomF
  where Fournisseur.NF = Livraison.NF and Produit.NP = livraison.NP AND Usine.NU = livraison.NU And couleur = 'rouge' and (Usine.ville = "Paris" or Usine.ville="Sochaux")
 
 8)
+select NP
+  from Usine, Fournisseur, Livraison
+ where Livraison.NU = Usine.NU and Livraison.NF = Fournisseur.NF and Usine.ville = Fournisseur.ville
+ 
+ 9)
+ select NP
+  from Usine, Fournisseur, Livraison
+ where Livraison.NU = Usine.NU and Livraison.NF = Fournisseur.NF and Usine.ville = Fournisseur.ville and Usine.ville = "Paris"
+
+ select NP
+   from Livraison
+  where NU in(select NU
+    from Usine
+    where ville = "Paris"), and NF in (select NF
+      from Fourniseur
+      where ville="Paris")
+
+10)
+select NU 
+  from Usine,Fournisseur,Livraison
+ where Livraison.NU = Usine.NU and Livraison.NF = Fournisseur.NF and Usine.ville != Fournisseur.ville
+
+ 11)
+ (select NF
+   from Livraison
+  where NU = 1)
+  intersect
+  (select NF
+    from Livraison 
+   where NU=2)
+
+12)
+select NU
+  
+  from Livraison
+ where NO in (select NP
+   
+   from Livraison
+  where NF = 3)
+
+  
