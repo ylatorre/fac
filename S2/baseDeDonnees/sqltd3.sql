@@ -104,4 +104,69 @@ select NU
    from Livraison
   where NF = 3)
 
+13)
+select NP
   
+  from Produit
+ where Poids (select MIN(Poids)
+   
+   from Produit);
+
+14)
+select NJ
+  
+  from Usine
+ where NU not in (select NU
+   
+   from Livraison,Produit,Fournisseur
+  where Livraison.NP = Produit.NP and Livraison.NF = Fournisseur.NF and couleur = "rouge" and ville="Paris")
+
+15)
+select NF
+  
+  from Livraison
+ where NP in (select NP
+              from Livraison
+            where NP in (select NF
+              from Livraison
+              where NP in(select NP
+                from Produit
+              where couleur="rouge")))
+
+16)
+select Fourniseur.ville AS villeF, NP,Usine.ville AS VilleU
+  from Livraison,Fournisseur,Usine  
+ where Livraison.NF = Fournisseur.NF and Livraison.NU = Usine.NU
+ 
+ 17)
+ select Fourniseur.ville AS villeF, NP,Usine.ville AS VilleU
+  from Livraison,Fournisseur,Usine  
+ where Livraison.NF = Fournisseur.NF and Livraison.NU = Usine.NU
+
+ 18) select NP
+   from Livraison,Usine
+  where Livraison.NU =Usine.NU and ville = "Paris"
+  GROUP BY NP HAVING COUNT(DISTINCT NU) = (select COUNT 
+    from Usine  
+   where ville="Paris")
+
+19)
+select NF
+  
+  from Livraison
+ GROUP BY NF, NP HAVING COUNT(DISTINCT)=(select COUNT(NU) from Usine)
+
+20)
+select NU
+  from Livraison
+ where NF=4
+
+ 21) 
+ select NU
+   from Livraison
+  where NU NOT IN (select NU
+    from Livraison  
+   where NF != 3)
+
+22)insert into Fourniseur 
+values (45,"Dupont","sous-traitant")
