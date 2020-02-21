@@ -1,3 +1,4 @@
+# coding=<utf-8>
 # 1) imports
 from qtido import *
 
