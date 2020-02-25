@@ -54,15 +54,18 @@ def verifie_presque_egal(a, b):
 ### Dé-commenter les tests suivants, petit à petit
 ### au fur et à mesure que vous écrivez les fonctions
 def somme_2d(x):
-    # print(l2[1]+l2[0])
-    y = x[0]+x[1]
+    y = []
+    for i in range(len(x)):
+        y = y + x[i]
     c = 0
     for i in range(len(y)):
         c = c + y[i]
     return c 
 
 def produit_2d(x):
-    y = x[0] + x[1]
+    y = []
+    for i in range(len(x)):
+        y = y + x[i]
     j = int(1)
     for i in range(len(y)):
         j = float(y[i]*j)
