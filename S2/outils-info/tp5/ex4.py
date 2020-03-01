@@ -11,33 +11,43 @@ def evolution(courant, H, L):
     for y in range(1, H-1):
         for x in range(1, L-1):
             # règle simple et fausse
-            if courant[y][x-2] > 0 or courant[y+1][x-3] > 0:
-                suivant[y][x] = 3
+            liste = [courant[y][x+1],courant[y][x-1],courant[y-1][x+1],
+            courant[y-1][x-1],courant[y+1][x-1],courant[y+1][x],
+            courant[y+1][x+1],courant[y-1][x]]
+            somme =sum(liste)
+            print(somme)
+            if courant[y][x] == 0 and somme==3:
+                suivant[y][x] = 1
+
+            elif courant[y][x] == 1 and somme in [2,3]:   
+                suivant[y][x] = 1
     return suivant
 
                 
 # 3 et 4) programme principal
+def init():
 
 # état initial
-H = 15
-L = 20
-f = creer(400, 300)
-grille = que_des_zeros(H, L)
+    H = 15
+    L = 20
+    f = creer(400, 300)
+    grille = que_des_zeros(H, L)
 
-init_boucle_deux_iterations(grille)
-#init_stable(grille)
-#init_devient_stable_en_trois(grille)
-#init_se_deplace_jusquau_bord(grille)
+    init_boucle_deux_iterations(grille)
+    init_stable(grille)
+    init_devient_stable_en_trois(grille)
+    init_se_deplace_jusquau_bord(grille)
 
-while not est_fermee(f):
-    # affichage
-    effacer(f)
-    afficher_grille(f, grille)
-    # événements
-    attendre_evenement(f, 100)
-    e = dernier_evenement(f)
-    if e == 16777216: # touche ECHAP
-        exit()
-    elif e == 32: # touche ESPACE
-        print("Évolution !")
-        grille = evolution(grille, H, L)
+    while not est_fermee(f):
+        # affichage
+        effacer(f)
+        afficher_grille(f, grille)
+        # événements
+        attendre_evenement(f, 100)
+        e = dernier_evenement(f)
+        if e == 16777216: # touche ECHAP
+            exit()
+        elif e == 32: # touche ESPACE
+            print("Évolution !")
+            grille = evolution(grille, H, L)
+init()

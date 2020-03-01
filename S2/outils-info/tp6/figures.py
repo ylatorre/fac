@@ -29,13 +29,7 @@ def losange(f,x,y):
     ligne(f,x,y/2,x*1.75,y)
     ligne(f,x,y*1.5,x*1.75,y)
     
-    # exporter_image(f, "question-losange.png")
-    # attendre_fermeture(f)
-    
-    
-# losange(principale(),400,300) 
-# losange(principale(),200,400)   
 
 principale(100,200)
-# principale(500,200)
+
 

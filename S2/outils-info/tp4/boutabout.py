@@ -9,5 +9,6 @@ a = "Toto"
 b = bout_a_bout(a,"Titi")
 c = bout_a_bout(a, b)
 print()
-print(b)
-print(c)
+
+
+

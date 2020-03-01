@@ -2,7 +2,7 @@ from qtido import *
 import sys
 
 
-def cercle_(r):
+def cercle_(r,e):
     f = creer(600,600)
     i = 0
     j = 0
@@ -18,6 +18,6 @@ def cercle_(r):
                 couleur(f,1,0,0)
                 cercle(f,300,300,l+20)
                 i = 1
-
+    exporter_image(f,e)
     attendre_fermeture(f)
-cercle_(int(sys.argv[1]))
+cercle_(int(sys.argv[1]),str(sys.argv[2]))

@@ -12,8 +12,8 @@ def evolution(courant, H, L):
         for x in range(1, L-1):
             # règle simple et fausse
             if courant[y][x-1] > 0 or courant[y+1][x-1] > 0:
-                suivant[y][x] = 1
-    return suivant
+                suivant[y][x] = 0
+    return suivant 1
 
                 
 # 3 et 4) programme principal
