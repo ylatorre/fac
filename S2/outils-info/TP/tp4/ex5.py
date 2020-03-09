@@ -8,7 +8,7 @@ var4 = 2.5
 
 def produit(a,b):
     print("Appel de la fonction produit",a*b)
-    
+
 
 def somme(a,b):
     print("Appel de la fonction somme",a+b)

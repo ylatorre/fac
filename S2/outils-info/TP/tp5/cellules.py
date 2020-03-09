@@ -12,42 +12,24 @@ def evolution(courant, H, L):
         for x in range(1, L-1):
             # règle simple et fausse
             if courant[y][x-1] > 0 or courant[y+1][x-1] > 0:
-                suivant[y][x] = 1
-    return suivant
+                suivant[y][x] = 0
+    return suivant 1
 
-                
+
 # 3 et 4) programme principal
 
 # état initial
-def initialisation():
-    H=15
-    L=20
-    f = creer(400,300)
-    grille = que_des_zeros(H,L)
-    return f,grille
+H = 15
+L = 20
+f = creer(400, 300)
+grille = que_des_zeros(H, L)
 
-def initialisation():
-    
-    H=15
-    L=20
-    f = creer(400,300)
-    grille = que_des_zeros(H,L)
-    init_boucle_deux_iterations(grille)
-    return f,init_boucle_deux_iterations
-
-initialisation()
-
-# H = 15
-# L = 20
-# f = creer(400, 300)
-# grille = que_des_zeros(H, L)
-
-# init_boucle_deux_iterations(grille)
+init_boucle_deux_iterations(grille)
 #init_stable(grille)
 #init_devient_stable_en_trois(grille)
 #init_se_deplace_jusquau_bord(grille)
 
-while not est_fermee(initialisation()):
+while not est_fermee(f):
     # affichage
     effacer(f)
     afficher_grille(f, grille)
